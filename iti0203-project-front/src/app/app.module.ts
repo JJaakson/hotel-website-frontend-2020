@@ -6,13 +6,15 @@ import { RoomsComponent } from './rooms/rooms.component';
 import { RoomDetailComponent } from './room-detail/room-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import {AppRoutingModule} from "./app-routing.module";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RoomsComponent,
     RoomDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

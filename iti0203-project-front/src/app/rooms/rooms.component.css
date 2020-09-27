@@ -1,35 +1,51 @@
-/* MessagesComponent's private CSS styles */
-h2 {
-  color: red;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: lighter;
+/* HeroesComponent's private CSS styles */
+.rooms {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
 }
-body {
-  margin: 2em;
-}
-body, input[text], button {
-  color: crimson;
-  font-family: Cambria, Georgia;
+.rooms li {
+  position: relative;
+  cursor: pointer;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
 }
 
-button.clear {
-  font-family: Arial;
-  background-color: #eee;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  cursor: hand;
+.rooms li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
 }
-button:hover {
-  background-color: #cfd8dc;
-}
-button:disabled {
-  background-color: #eee;
-  color: #aaa;
-  cursor: auto;
-}
-button.clear {
+
+.rooms a {
   color: #333;
-  margin-bottom: 12px;
+  text-decoration: none;
+  position: relative;
+  display: block;
+  width: 250px;
+}
+
+.rooms a:hover {
+  color:#607D8B;
+}
+
+.rooms .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color:#405061;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  min-width: 16px;
+  text-align: right;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
 }
