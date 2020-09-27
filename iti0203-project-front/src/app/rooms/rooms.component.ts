@@ -23,7 +23,7 @@ export class RoomsComponent implements OnInit {
 
   onSelect(room: Room): void {
     this.selectedRoom = room;
-    this.messageService.add(`RoomsComponent: Selected room id=${room.id}`);
+    // this.messageService.add(`RoomsComponent: Selected room id=${room.id}`);
   }
 
   getRooms(): void {

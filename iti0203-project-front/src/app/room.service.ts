@@ -15,7 +15,7 @@ export class RoomService {
 
   getRooms(): Observable<Room[]> {
     // Sends the message _after_ fetching the rooms
-    this.messageService.add('RoomService: fetched rooms');
+    // this.messageService.add('RoomService: fetched rooms');
     return of(ROOMS);
   }
 }

@@ -7,6 +7,7 @@ import { RoomDetailComponent } from './room-detail/room-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HomeComponent } from './home/home.component';
     RoomsComponent,
     RoomDetailComponent,
     MessagesComponent,
-    HomeComponent
+    HomeComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
