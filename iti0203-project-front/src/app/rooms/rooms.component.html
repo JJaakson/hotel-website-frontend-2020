@@ -1,0 +1,11 @@
+<h2>Rooms</h2>
+
+<ul class="rooms">
+  <li *ngFor="let room of rooms"
+      [class.selected]="room === selectedRoom"
+      (click)="onSelect(room)">
+    <span class="badge">{{room.id}}</span> {{room.name}}
+  </li>
+</ul>
+
+<app-room-detail [room]="selectedRoom"></app-room-detail>
