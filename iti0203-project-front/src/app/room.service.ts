@@ -25,6 +25,14 @@ export class RoomService {
     private http: HttpClient,
     private messageService: MessageService) { }
 
+  getRoom(id: number): Observable<Room> {
+    const url = `${this.roomsUrl}/${id}`;
+    return this.http.get<Room>(url).pipe(
+      tap(_ => this.log(`fetched hero id=${id}`)),
+      catchError(this.handleError<Room>(`getHero id=${id}`))
+    );
+  }
+
   /** GET rooms from the server */
   getRooms(): Observable<Room[]> {
     // return of(ROOMS);
