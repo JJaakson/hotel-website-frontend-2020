@@ -11,29 +11,26 @@
 </div>
 
 <ul class="heroes">
-  <li *ngFor="let room of rooms">
+  <li *ngFor="let room of rooms"
+      [class.selected]="room === selectedRoom"
+      (click)="onSelect(room)">
     <a routerLink="/detail/{{room.id}}">
       <span class="badge">{{room.id}}</span> {{room.name}}
     </a>
-<!--    <button class="delete" title="delete hero"-->
-<!--            (click)="delete(room)">x</button>-->
+    <button class="delete" title="delete hero"
+            (click)="delete(room)">x</button>
   </li>
 </ul>
 
 
+<!--<h2>Rooms</h2>
 
+<ul class="heroes">
+  <li *ngFor="let room of rooms"
+      [class.selected]="room === selectedRoom"
+      (click)="onSelect(room)">
+    <span class="badge">{{room.id}}</span> {{room.name}}
+  </li>
+</ul>
 
-
-
-
-<!--<h2>Rooms</h2>-->
-
-<!--<ul class="rooms">-->
-<!--  <li *ngFor="let room of rooms"-->
-<!--      [class.selected]="room === selectedRoom"-->
-<!--      (click)="onSelect(room)">-->
-<!--    <span class="badge">{{room.id}}</span> {{room.name}}-->
-<!--  </li>-->
-<!--</ul>-->
-
-<!--<app-room-detail [room]="selectedRoom"></app-room-detail>-->
+<app-room-detail [room]="selectedRoom"></app-room-detail>-->
