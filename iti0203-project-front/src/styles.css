@@ -11,9 +11,10 @@ h2, h3 {
 }
 body {
   margin: 2em;
+  background-color: azure;
 }
 body, input[type="text"], button {
-  color: #333;
+  color: #333333;
   font-family: Cambria, Georgia;
 }
 /* everywhere else */
