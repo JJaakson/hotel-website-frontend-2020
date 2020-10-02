@@ -1,12 +1,22 @@
 <div *ngIf="room">
 
   <h2>{{room.name | uppercase}}</h2>
+  <h3>Booking details:</h3>
   <div>
-    <label>Booking details:
-      <input #details />
+    <label>Your name:
+      <input #name /><br><br>
+    </label>
+    StartDate(yyyy-mm-dd):
+    <label>
+      <input #startDate /><br><br>
+    </label>
+    EndDate(yyyy-mm-dd):
+    <label>
+      <input #endDate /><br><br>
     </label>
     <!-- (click) passes input value to add() and then clears the input -->
-    <button (click)="addBooking(details.value); details.value=''">
+    <button (click)="addBooking(name.value, startDate.value, endDate.value)
+    ; name.value=''; startDate.value = ''; endDate.value = ''">
       Book!
     </button>
   </div>
