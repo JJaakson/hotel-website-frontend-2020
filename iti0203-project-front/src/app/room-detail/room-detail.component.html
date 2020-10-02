@@ -2,8 +2,13 @@
 
   <h2>{{room.name | uppercase}}</h2>
   <div>
-    <label>INFORMATION ABOUT THE HOTEL!
+    <label>Booking details:
+      <input #details />
     </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="addBooking(details.value); details.value=''">
+      Book!
+    </button>
   </div>
   <img src="/assets/pictures/test_room_{{room.id}}.jpg" alt="Picture of the room">
 </div>
