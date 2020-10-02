@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Room } from '../room';
 import {ActivatedRoute} from "@angular/router";
 import {RoomService} from "../room.service";
+import {Booking} from "../booking";
+import {MessageService} from "../message.service";
 
 
 @Component({
@@ -11,10 +13,12 @@ import {RoomService} from "../room.service";
 })
 export class RoomDetailComponent implements OnInit {
   room: Room;
+  bookings: Booking[];
 
   constructor(
     private route: ActivatedRoute,
     private roomService: RoomService,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -27,5 +31,13 @@ export class RoomDetailComponent implements OnInit {
       .subscribe(room => this.room = room);
   }
 
-
+  addBooking(name: String): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.roomService.addBooking({ name } as Booking)
+      .subscribe(booking => {
+        this.bookings.push(booking)
+      })
+    this.messageService.add(`RoomDetailComponent: Selected for booking=${name}`);
+  }
 }
