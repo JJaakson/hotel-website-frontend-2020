@@ -1,0 +1,9 @@
+<p>booking works!</p>
+
+<ul class="heroes">
+  <li *ngFor="let booking of bookings">
+    <a routerLink="/detail/{{booking.id}}">
+      <span class="badge">{{booking.id}}</span> {{booking.name}} {{booking.startDate}} {{booking.endDate}}
+    </a>
+  </li>
+</ul>
