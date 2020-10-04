@@ -8,11 +8,11 @@
     </label>
     StartDate(yyyy-mm-dd):
     <label>
-      <input #startDate /><br><br>
+      <input type="date" #startDate /><br><br>
     </label>
     EndDate(yyyy-mm-dd):
     <label>
-      <input #endDate /><br><br>
+      <input type="date" #endDate /><br><br>
     </label>
     <!-- (click) passes input value to add() and then clears the input -->
     <button (click)="addBooking(name.value, startDate.value, endDate.value)
