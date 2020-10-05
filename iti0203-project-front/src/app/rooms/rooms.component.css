@@ -1,13 +1,11 @@
 .rooms {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
+
   width: 15em;
 }
 .rooms li {
   position: relative;
   cursor: pointer;
-  background-color: #EEE;
+  background-color: red;
   margin: .5em;
   padding: .3em 0;
   height: 1.6em;
@@ -29,7 +27,7 @@
 }
 
 .rooms a:hover {
-  color: #607D8B;
+  color: red;
 }
 
 .rooms .badge {

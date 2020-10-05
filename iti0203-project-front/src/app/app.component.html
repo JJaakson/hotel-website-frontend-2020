@@ -1,9 +1,38 @@
-<h1>{{title}}</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hotel Trivago</title>
+</head>
+
+<div class="header">
+  <img src="/assets/pictures/logo.png" >
+</div>
+
+<body>
 <nav>
-  <a routerLink="/home">Home</a>
-  <a routerLink="/rooms">Rooms</a>
-  <a routerLink="/contact">Contact</a>
-  <a routerLink="/booking">Booking</a>
+    <ul>
+      <li class="title">
+        <a routerLink="/home">Hotel Trivago</a>
+      </li>
+      <li>
+        <a routerLink="/booking">Booking</a>
+      </li>
+      <li>
+        <a routerLink="/contact">Contact</a>
+      </li>
+      <li>
+        <a routerLink="/rooms">Rooms</a>
+      </li>
+      <li>
+        <a routerLink="/home">Home</a>
+      </li>
+    </ul>
 </nav>
+
+
+
+
+</body>
+
 <router-outlet></router-outlet>
 <app-messages></app-messages>

@@ -10,12 +10,8 @@ h2, h3 {
   font-weight: lighter;
 }
 body {
-  margin: 2em;
-  background-color: azure;
-}
-body, input[type="text"], button {
-  color: #333333;
-  font-family: Cambria, Georgia;
+  margin: 0;
+  background-color: white;
 }
 /* everywhere else */
 * {

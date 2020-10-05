@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css?family=David+Libre");
+
+.pictures {
+  margin: 0;
+  float: left;
+  border: solid 6px darkred;
+}
+
+#slider {
+  overflow: hidden;
+}
+
+#slider figure {
+  position: relative;
+  width: 300%;
+  margin: 0;
+  animation: 20s slider infinite;
+}
+
+
+#slider figure img {
+  width: 33.33%;
+}
+
+@keyframes slider {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 10px;
+}
+
+.leftcolumn {
+  float: left;
+  width: 35%;
+  padding-top: 10px;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 65%;
+  padding: 20px;
+}
+
+.card {
+  /*background-color: #286ac9;*/
+  border: solid 6px darkred;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.footer {
+  padding-left: 50px;
+  margin: 0;
+  text-align: left;
+  background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+
+.welcome-text {
+  font-family: 'David Libre', sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #0b2852;
+}
