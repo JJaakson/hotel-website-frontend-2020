@@ -31,12 +31,12 @@ export class RoomDetailComponent implements OnInit {
       .subscribe(room => this.room = room);
   }
 
-  addBooking(name: String, startDate: String, endDate: String): void {
+  addBooking(name: String, startDate: String, endDate: String, roomId: Number): void {
     name = name.trim();
     startDate = startDate.trim();
     endDate = endDate.trim();
-    if (!name || !startDate || !endDate) { return; }
-    this.roomService.addBooking({ name, startDate, endDate } as Booking)
+    if (!name || !startDate || !endDate || !roomId) { return; }
+    this.roomService.addBooking({ name, startDate, endDate, roomId } as Booking)
       .subscribe(booking => {
         this.bookings.push(booking)
       })

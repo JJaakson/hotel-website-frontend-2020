@@ -15,7 +15,8 @@
       <input type="date" #endDate /><br><br>
     </label>
     <!-- (click) passes input value to add() and then clears the input -->
-    <button (click)="addBooking(name.value, startDate.value, endDate.value)
+    <div><span>{{room.amount | number}}</span> are available</div>
+    <button (click)="addBooking(name.value, startDate.value, endDate.value, room.id)
     ; name.value=''; startDate.value = ''; endDate.value = ''">
       Book!
     </button>
