@@ -1,5 +1,35 @@
 <p>booking works!</p>
 
+
+<h3>Booking details:</h3>
+<div>
+  <form>
+    <label for="rooms">Choose a room:</label>
+
+    <select id="rooms" name="rooms" #roomId>
+      <option value="1">Standard Single</option>
+      <option value="2">Standard Double</option>
+      <option value="3">Deluxe</option>
+    </select>
+    <input type="submit" value="Submit">
+  </form>
+  StartDate(yyyy-mm-dd):
+  <label>
+    <input type="date" #startDate /><br><br>
+  </label>
+  EndDate(yyyy-mm-dd):
+  <label>
+    <input type="date" #endDate /><br><br>
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="sendAvailabilityData(roomId.value, startDate.value, endDate.value)
+    ; startDate.value = ''; endDate.value = ''">
+    Book!
+  </button>
+</div>
+
+<h2>{{room.amount}} {{room.name}} available rooms</h2>
+
 <ul class="heroes">
   <li *ngFor="let booking of bookings">
     <a routerLink="/detail/{{booking.id}}">

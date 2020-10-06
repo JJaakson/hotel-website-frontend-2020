@@ -4,6 +4,8 @@ import {MessageService} from "./message.service";
 import {Observable, of} from "rxjs";
 import {Booking} from "./booking";
 import {catchError, tap} from "rxjs/operators";
+import {Availabilitydata} from "./availabilitydata";
+import {Room} from "./room";
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +28,14 @@ export class BookingService {
         tap(_ => this.log('fetched bookings')),
         catchError(this.handleError<Booking[]>('getBookings', []))
       );
+  }
+
+  getAvailabilityData(data: Availabilitydata): Observable<Room> {
+    const url = `${this.bookingsUrl}`;
+    return this.http.put(url, data, this.httpOptions).pipe(
+      tap(_ => this.log(`updated availabilitydata`)),
+      catchError(this.handleError<any>('updateAvailability'))
+    );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
