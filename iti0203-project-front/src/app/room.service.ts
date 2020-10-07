@@ -3,10 +3,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { ROOMS } from './mock-rooms';
 
 import { Room } from './room';
 import { MessageService } from './message.service';
+import {Booking} from "./booking";
 
 
 @Injectable({
@@ -25,14 +25,29 @@ export class RoomService {
     private http: HttpClient,
     private messageService: MessageService) { }
 
+  getRoom(id: number): Observable<Room> {
+    const url = `${this.roomsUrl}/${id}`;
+    return this.http.get<Room>(url).pipe(
+      tap(_ => this.log(`fetched hero id=${id}`)),
+      catchError(this.handleError<Room>(`getHero id=${id}`))
+    );
+  }
+
   /** GET rooms from the server */
   getRooms(): Observable<Room[]> {
     // return of(ROOMS);
     return this.http.get<Room[]>(this.roomsUrl)
       .pipe(
-        tap(_ => this.log('fetched rooms')),
+        tap(_ => this.log('fetched roomtypes')),
         catchError(this.handleError<Room[]>('getRooms', []))
       );
+  }
+
+  addBooking(booking: Booking): Observable<Booking> {
+    return this.http.post<Booking>(this.roomsUrl + '/book', booking, this.httpOptions).pipe(
+      tap((newBooking: Booking) => this.log(`added booking w /id =${newBooking.id}`)),
+      catchError(this.handleError<Booking>('addBooking'))
+    );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

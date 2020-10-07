@@ -9,6 +9,10 @@ import {AppRoutingModule} from "./app-routing.module";
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BookingComponent } from './booking/booking.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -18,7 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
     RoomDetailComponent,
     MessagesComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    BookingComponent,
+    HeaderComponent,
+    FooterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
