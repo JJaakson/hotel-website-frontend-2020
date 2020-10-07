@@ -3,4 +3,6 @@ export interface Booking {
   name: string;
   startDate: string;
   endDate: string;
+  roomId: number;
+  paymentInfo: string;
 }

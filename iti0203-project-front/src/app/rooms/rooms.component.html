@@ -1,6 +1,15 @@
+<h2>My Rooms</h2>
 
+<!--<div>
+  <label>Room name:
+    <input #roomName />
+  </label>
+  (click) passes input value to add() and then clears the input
+  <button (click)="add(roomName.value); roomName.value=''">
+    add
+  </button>
+</div>-->
 
-<body>
 <ul class="rooms">
   <li *ngFor="let room of rooms"
       [class.selected]="room === selectedRoom"
@@ -12,11 +21,16 @@
             (click)="delete(room)">x</button>
   </li>
 </ul>
-</body>
 
 
+<!--<h2>Rooms</h2>
 
+<ul class="heroes">
+  <li *ngFor="let room of rooms"
+      [class.selected]="room === selectedRoom"
+      (click)="onSelect(room)">
+    <span class="badge">{{room.id}}</span> {{room.name}}
+  </li>
+</ul>
 
-
-
-
+<app-room-detail [room]="selectedRoom"></app-room-detail>-->
