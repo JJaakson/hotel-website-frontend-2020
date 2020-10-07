@@ -9,6 +9,5 @@ export const ROOMS: Room[] = [
   { id: 6, name: 'Room nr. 6' },
   { id: 7, name: 'Room nr. 7' },
   { id: 8, name: 'Room nr. 8' },
-  { id: 9, name: 'Room nr. 9' },
-  { id: 10, name: 'Room nr. 10' }
+  { id: 9, name: 'Room nr. 9' },  { id: 10, name: 'Room nr. 10' }
 ];

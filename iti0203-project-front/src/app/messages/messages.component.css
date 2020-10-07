@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=David+Libre");
+
+h2 {
+  font-family: 'David Libre', sans-serif;
+  color: #0b2852;
+  padding-left: 30px;
+}
+
+.clear {
+  text-align: center;
+  width: 200px;
+  height: 30px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+.messages {
+  border: dashed rebeccapurple;
+  padding: 10px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  width: 55%;
+}

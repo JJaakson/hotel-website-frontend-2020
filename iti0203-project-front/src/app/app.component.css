@@ -1,50 +1,6 @@
-
-
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #0b2852;
+html {
+  position: relative;
+  min-height: 100%;
 }
 
-li {
-
-  padding-right: 20px;
-  float: right;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: #111;
-}
-
-.title {
-  float: left;
-  background-color: darkred;
-}
-
-
-.title a {
-  font-size: 20px;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 100px;
-  text-decoration: none;
-}
-
-.header{
-  background-color: #F1F1F1;
-  text-align: center;
-  padding: 0px;
-}
 
