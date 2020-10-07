@@ -4,4 +4,5 @@ export interface Booking {
   startDate: string;
   endDate: string;
   roomId: number;
+  paymentInfo: string;
 }

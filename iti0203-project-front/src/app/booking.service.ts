@@ -38,6 +38,13 @@ export class BookingService {
     );
   }
 
+  addBooking(booking: Booking): Observable<Booking> {
+    return this.http.post<Booking>(this.bookingsUrl, booking, this.httpOptions).pipe(
+      tap((newBooking: Booking) => this.log(`added booking w /id =${newBooking.id}`)),
+      catchError(this.handleError<Booking>('addBooking'))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

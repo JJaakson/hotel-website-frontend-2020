@@ -9,6 +9,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
+import {BookingComponent} from "./booking/booking.component";
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     RoomDetailComponent,
     MessagesComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    BookingComponent
   ],
   imports: [
     BrowserModule,
