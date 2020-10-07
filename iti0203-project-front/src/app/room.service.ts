@@ -39,7 +39,7 @@ export class RoomService {
     // return of(ROOMS);
     return this.http.get<Room[]>(this.roomsUrl)
       .pipe(
-        tap(_ => this.log('fetched rooms')),
+        tap(_ => this.log('fetched roomtypes')),
         catchError(this.handleError<Room[]>('getRooms', []))
       );
   }

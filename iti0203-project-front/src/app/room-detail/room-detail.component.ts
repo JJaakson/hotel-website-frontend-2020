@@ -18,7 +18,6 @@ export class RoomDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private roomService: RoomService,
-    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -31,15 +30,4 @@ export class RoomDetailComponent implements OnInit {
       .subscribe(room => this.room = room);
   }
 
-  addBooking(name: String, startDate: String, endDate: String): void {
-    name = name.trim();
-    startDate = startDate.trim();
-    endDate = endDate.trim();
-    if (!name || !startDate || !endDate) { return; }
-    this.roomService.addBooking({ name, startDate, endDate } as Booking)
-      .subscribe(booking => {
-        this.bookings.push(booking)
-      })
-    this.messageService.add(`RoomDetailComponent: Selected for booking=${name}`);
-  }
 }

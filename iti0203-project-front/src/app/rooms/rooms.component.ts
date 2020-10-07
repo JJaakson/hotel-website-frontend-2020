@@ -12,7 +12,6 @@ import { MessageService } from '../message.service';
 export class RoomsComponent implements OnInit {
 
   selectedRoom: Room;
-
   rooms: Room[];
 
   constructor(private roomService: RoomService, private messageService: MessageService) { }
