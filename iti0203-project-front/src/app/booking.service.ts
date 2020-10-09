@@ -30,6 +30,14 @@ export class BookingService {
       );
   }
 
+  getBookingById(bookingId: number): Observable<Booking> {
+    return this.http.get<Booking>(`${this.bookingsUrl}/${bookingId}`)
+      .pipe(
+        tap(_ => this.log(`fetched booking id=${bookingId}`)),
+        catchError(this.handleError<Booking>(`getBooking id=${bookingId}`))
+      );
+  }
+
   getAvailabilityData(data: Availabilitydata): Observable<Room> {
     const url = `${this.bookingsUrl}`;
     return this.http.put(url, data, this.httpOptions).pipe(

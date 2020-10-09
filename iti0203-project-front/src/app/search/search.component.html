@@ -1,0 +1,17 @@
+<div>
+  Enter the bookings ID:
+  <label>
+    <input #bookingId /><br><br>
+  </label>
+  <button (click)="getBookingById(bookingId.value)">
+    Search!
+  </button>
+</div>
+
+
+<div>
+  <h2>Booking ID: {{booking.id}}</h2>
+  <div>Date: {{booking.startDate}} to {{booking.endDate}}</div>
+  <div>Name: {{booking.name}}</div>
+  <div>Payment information: {{booking.paymentInfo}}</div>
+</div>
