@@ -13,6 +13,7 @@ import { BookingComponent } from './booking/booking.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import {SearchComponent} from "./search/search.component";
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     HomeComponent,
     ContactComponent,
     BookingComponent,
+    SearchComponent,
     HeaderComponent,
     FooterComponent,
     NavbarComponent
