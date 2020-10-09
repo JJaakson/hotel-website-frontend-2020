@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
 import {BookingComponent} from "./booking/booking.component";
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {BookingComponent} from "./booking/booking.component";
     MessagesComponent,
     HomeComponent,
     ContactComponent,
-    BookingComponent
+    BookingComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
