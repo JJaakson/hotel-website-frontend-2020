@@ -14,6 +14,7 @@ export class BookingComponent implements OnInit {
 
   bookings: Booking[];
   room: Room;
+  bookedBooking: Booking;
 
   constructor(private bookingService: BookingService, private messageService: MessageService) { }
 

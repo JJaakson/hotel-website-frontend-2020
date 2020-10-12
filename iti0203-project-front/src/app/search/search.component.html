@@ -1,13 +1,10 @@
-<div>
-  <h2>Enter the bookings ID:</h2>
-  <label>
-    <input #bookingId /><br><br>
-  </label>
-  <button (click)="getBookingById(bookingId.value)">
-    Search!
-  </button>
-</div>
-
+<h2>Enter the bookings ID:</h2>
+<label>
+  <input #bookingId /><br><br>
+</label>
+<button (click)="getBookingById(bookingId.value)">
+  Search!
+</button>
 
 <div>
   <h2>Booking ID: {{selectedBooking.id}}</h2>
@@ -18,7 +15,6 @@
 
 <ul class="booking">
   <li *ngFor="let booking of bookings"
-      [class.selected]="booking === selectedBooking"
       (click)="onSelect(booking)">
     <span class="badge">{{booking.id}}</span> {{booking.name}}
   </li>
