@@ -4,6 +4,8 @@ import {Booking} from "../booking";
 import {Availabilitydata} from "../availabilitydata";
 import {Room} from "../room";
 import {MessageService} from "../message.service";
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {RoomService} from "../room.service";
 
 @Component({
   selector: 'app-booking',
@@ -13,22 +15,23 @@ import {MessageService} from "../message.service";
 export class BookingComponent implements OnInit {
 
   bookings: Booking[];
-  room: Room;
+  selectedRoom: Room;
+  rooms: Room[];
+  roomsForm: FormGroup;
 
-  constructor(private bookingService: BookingService, private messageService: MessageService) { }
+  constructor(private bookingService: BookingService, private roomService: RoomService,
+              private messageService: MessageService, private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.getBookings()
+    this.getRooms()
+    this.roomsForm = this.fb.group({
+      room: []
+    })
   }
 
   sendAvailabilityData(roomIdAsString: String, startDate: String, endDate: String): void {
     roomIdAsString = roomIdAsString.trim();
     let roomId = Number(roomIdAsString);
-    startDate = startDate.trim();
-    endDate = endDate.trim();
-    if (!startDate || !endDate || !roomId) { return; }
-    this.bookingService.getAvailabilityData({ roomId, startDate, endDate } as Availabilitydata)
-      .subscribe(room => this.room = room);
   }
 
   addBooking(name: String, startDate: String, endDate: String, paymentInfo: String, roomIdAsString: String): void {
@@ -47,11 +50,11 @@ export class BookingComponent implements OnInit {
   }
 
   isItReadyForBooking(): boolean {
-    return this.room.amount > 0;
+    return this.selectedRoom.amount > 0;
   }
 
-  getBookings(): void {
-    this.bookingService.getBookings()
-      .subscribe(bookings => this.bookings = bookings);
+  getRooms(): void {
+    this.roomService.getRooms()
+      .subscribe(rooms => this.rooms = rooms);
   }
 }

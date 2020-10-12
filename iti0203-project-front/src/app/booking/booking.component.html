@@ -1,12 +1,12 @@
 <h3>Booking details:</h3>
 <div>
-  <form>
-    <label for="rooms">Choose a room:</label>
-    <select id="rooms" name="rooms" #roomId>
-      <option value="1">Standard Single</option>
-      <option value="2">Standard Double</option>
-      <option value="3">Deluxe</option>
-    </select><br><br>
+  <form [formGroup]="roomsForm">
+    <p>
+      <select formControlName="room">
+        <option [ngValue]="null" disabled>Select Room</option>
+        <option *ngFor="let room of rooms" [ngValue]="room.id">{{room.name}}</option>
+      </select>
+    </p>
   </form>
   StartDate:
   <label>
@@ -17,10 +17,10 @@
     <input type="date" #endDate /><br><br>
   </label>
   <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="sendAvailabilityData(roomId.value, startDate.value, endDate.value)">
+  <button (click)="sendAvailabilityData(selectedRoom.name, startDate.value, endDate.value)">
     Check Availability!
   </button>
-  <h2>{{room.amount}} {{room.name}} available rooms</h2>
+  <h2>{{selectedRoom.amount}} {{selectedRoom.name}} available rooms</h2>
 </div>
 
 <div *ngIf="isItReadyForBooking()">
