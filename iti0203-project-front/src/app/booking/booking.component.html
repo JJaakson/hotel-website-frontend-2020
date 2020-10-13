@@ -1,42 +1,59 @@
 <h3>Booking details:</h3>
-<div>
-  <form>
-    <label for="rooms">Choose a room:</label>
-    <select id="rooms" name="rooms" #roomId>
-      <option value="1">Standard Single</option>
-      <option value="2">Standard Double</option>
-      <option value="3">Deluxe</option>
-    </select><br><br>
-  </form>
-  StartDate:
-  <label>
-    <input type="date" #startDate /><br><br>
-  </label>
-  EndDate:
-  <label>
-    <input type="date" #endDate /><br><br>
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="sendAvailabilityData(roomId.value, startDate.value, endDate.value)">
-    Check Availability!
-  </button>
-  <h2>{{room.amount}} {{room.name}} available rooms</h2>
+
+<form [formGroup]="roomsForm">
+  Select Room:
+  <select formControlName="roomControl" #theRoom>
+    <option [ngValue]="null" disabled>Select Room</option>
+    <option *ngFor="let room of rooms" value="{{room.id}}">{{room.name}}
+    </option>
+  </select>
+</form>
+<br>
+Start Date:
+<label>
+  <input type="date" value="{{currentDate  | date:'yyyy-MM-dd'}}" min="{{currentDate  | date:'yyyy-MM-dd'}}" #startDate />
+  <br><br>
+</label>
+End Date:
+<label>
+  <input type="date" value="{{startDate.value}}" min="{{startDate.value}}" #endDate />
+  <br><br>
+</label>
+<!-- (click) passes input value to add() and then clears the input -->
+<button (click)="sendAvailabilityData(theRoom.value, startDate.value, endDate.value)">
+  Check Availability!
+</button>
+<br>
+
+<div *ngIf="selectedRoom != null">
+  <h2>{{selectedRoom.amount}} {{selectedRoom.name}} available rooms</h2>
+  <div *ngIf="selectedRoom.amount > 0">
+    Enter your name:
+    <label>
+      <input #name /><br><br>
+    </label>
+    Enter your payment information:
+    <label>
+      <input #payment /><br><br>
+    </label>
+    <button (click)="addBooking(name.value, startDate.value, endDate.value, payment.value, selectedRoom)">
+      Book!
+    </button>
+    <div *ngIf="isBooked">
+      Your room is booked!
+      Details:<br>
+      ID to seach by: {{currentBooking.id}}<br>
+      Booker name: {{currentBooking.name}}<br>
+      Visit: {{currentBooking.startDate}}-{{currentBooking.endDate}}<br>
+      Payment information: {{currentBooking.paymentInfo}}<br>
+      Room: {{currentBooking.room.name}}
+    </div>
+  </div>
+  <div *ngIf="selectedRoom.amount == 0">
+    No available rooms.
+  </div>
 </div>
 
-<div *ngIf="isItReadyForBooking()">
-  Enter your name:
-  <label>
-    <input #name /><br><br>
-  </label>
-  Enter your payment information:
-  <label>
-    <input #payment /><br><br>
-  </label>
-  <button (click)="addBooking(name.value, startDate.value, endDate.value, payment.value, roomId.value)">
-    Book!
-  </button>
-</div>
-
-<div *ngIf="!isItReadyForBooking()">
-  Something went wrong!
+<div *ngIf="selectedRoom == null">
+  Please fill out correct information
 </div>

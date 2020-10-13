@@ -1,21 +1,30 @@
-<h2>Enter the bookings ID:</h2>
+<h2>Search by ID or enter the range of Dates:</h2>
 <label>
-  <input #bookingId /><br><br>
-</label>
+  <input type="number" #bookingId />
+  <input type="date" placeholder="from" #startDate />
+  <input type="date" placeholder="to" #endDate />
+</label><br><br>
 <button (click)="getBookingById(bookingId.value)">
   Search!
 </button>
 
-<div>
+
+
+<div *ngIf="selectedBooking">
   <h2>Booking ID: {{selectedBooking.id}}</h2>
   <div>Date: {{selectedBooking.startDate}} to {{selectedBooking.endDate}}</div>
   <div>Name: {{selectedBooking.name}}</div>
   <div>Payment information: {{selectedBooking.paymentInfo}}</div>
 </div>
+<div *ngIf="isDateTimeSearch == false">
+  <ul class="bookings">
+    <li *ngFor="let booking of bookings"
+        [class.selected]="booking === selectedBooking"
+        (click)="onSelect(booking)">
+      <span class="badge">{{booking.id}}</span> {{booking.startDate}} to {{booking.endDate}}
+    </li>
+  </ul>
+</div>
 
-<ul class="booking">
-  <li *ngFor="let booking of bookings"
-      (click)="onSelect(booking)">
-    <span class="badge">{{booking.id}}</span> {{booking.name}}
-  </li>
-</ul>
+
+

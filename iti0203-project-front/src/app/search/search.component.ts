@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BookingService} from "../booking.service";
 import {Booking} from "../booking";
-import {Room} from "../room";
 
 @Component({
   selector: 'app-search',
@@ -12,6 +11,7 @@ export class SearchComponent implements OnInit {
 
   selectedBooking: Booking;
   bookings: Booking[];
+  isDateTimeSearch: boolean;
 
   constructor(private bookingService: BookingService) { }
 
@@ -28,6 +28,7 @@ export class SearchComponent implements OnInit {
   }
 
   getBookings(): void {
+    this.isDateTimeSearch = false;
     this.bookingService.getBookings()
       .subscribe(bookings => this.bookings = bookings);
   }
@@ -35,5 +36,4 @@ export class SearchComponent implements OnInit {
   onSelect(booking: Booking): void {
     this.selectedBooking = booking;
   }
-
 }

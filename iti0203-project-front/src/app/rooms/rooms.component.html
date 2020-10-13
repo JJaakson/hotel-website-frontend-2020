@@ -11,14 +11,10 @@
 </div>-->
 
 <ul class="rooms">
-  <li *ngFor="let room of rooms"
-      [class.selected]="room === selectedRoom"
-      (click)="onSelect(room)">
+  <li *ngFor="let room of rooms">
     <a routerLink="/detail/{{room.id}}">
       <span class="badge">{{room.id}}</span> {{room.name}}
     </a>
-    <button class="delete" title="delete hero"
-            (click)="delete(room)">x</button>
   </li>
 </ul>
 
