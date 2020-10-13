@@ -1,7 +1,5 @@
-import {Room} from "./room";
-
 export interface Availabilitydata {
-  room: Room;
+  roomId: number;
   startDate: string;
   endDate: string;
 }

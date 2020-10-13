@@ -1,42 +1,42 @@
 <h3>Booking details:</h3>
 <div>
   <form [formGroup]="roomsForm">
-    <p>
-      <select formControlName="room">
+        Select Room
+      <select formControlName="roomControl" #theRoom>
         <option [ngValue]="null" disabled>Select Room</option>
-        <option *ngFor="let room of rooms" [ngValue]="room.id">{{room.name}}</option>
+        <option *ngFor="let room of rooms" value="{{room.id}}">{{room.name}}
+        </option>
       </select>
-    </p>
   </form>
-  StartDate:
-  <label>
-    <input type="date" #startDate /><br><br>
-  </label>
-  EndDate:
-  <label>
-    <input type="date" #endDate /><br><br>
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="sendAvailabilityData(selectedRoom.name, startDate.value, endDate.value)">
-    Check Availability!
-  </button>
+</div>
+StartDate(yyyy-mm-dd):
+<label>
+  <input type="date" #startDate /><br><br>
+</label>
+EndDate(yyyy-mm-dd):
+<label>
+  <input type="date" #endDate /><br><br>
+</label>
+<!-- (click) passes input value to add() and then clears the input -->
+<button (click)="sendAvailabilityData(theRoom.value, startDate.value, endDate.value)">
+  Check Availability!
+</button>
+
+<div *ngIf="selectedRoom != null">
   <h2>{{selectedRoom.amount}} {{selectedRoom.name}} available rooms</h2>
+  <div *ngIf="selectedRoom.amount > 0">
+    Enter your name:
+    <label>
+      <input #name /><br><br>
+    </label>
+    Enter your payment information:
+    <label>
+      <input #payment /><br><br>
+    </label>
+    <button (click)="addBooking(name.value, startDate.value, endDate.value, payment.value, selectedRoom)">
+      Book!
+    </button>
+  </div>
 </div>
 
-<div *ngIf="isItReadyForBooking()">
-  Enter your name:
-  <label>
-    <input #name /><br><br>
-  </label>
-  Enter your payment information:
-  <label>
-    <input #payment /><br><br>
-  </label>
-  <button (click)="addBooking(name.value, startDate.value, endDate.value, payment.value, roomId.value)">
-    Book!
-  </button>
-</div>
 
-<div *ngIf="!isItReadyForBooking()">
-  Something went wrong!
-</div>
