@@ -1,8 +1,10 @@
+import {Room} from "./room";
+
 export interface Booking {
   id: number;
   name: string;
   startDate: string;
   endDate: string;
-  roomId: number;
+  room: Room;
   paymentInfo: string;
 }
