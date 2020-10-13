@@ -6,6 +6,7 @@ import {MessageService} from "../message.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {RoomService} from "../room.service";
 import {Availabilitydata} from "../availabilitydata";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-booking',
@@ -18,7 +19,8 @@ export class BookingComponent implements OnInit {
   rooms: Room[];
   bookings: Booking[];
   roomsForm: FormGroup;
-  availabilityData: Availabilitydata;
+  currentDate = new Date();
+  isBooked: boolean;
 
   constructor(private bookingService: BookingService, private roomService: RoomService,
               private messageService: MessageService, private fb: FormBuilder) { }
@@ -31,6 +33,7 @@ export class BookingComponent implements OnInit {
   }
 
   sendAvailabilityData(roomIdAsString: String, startDate: String, endDate: String): void {
+    this.isBooked = false;
     startDate = startDate.trim();
     endDate = endDate.trim();
     roomIdAsString = roomIdAsString.trim();
@@ -51,6 +54,7 @@ export class BookingComponent implements OnInit {
       .subscribe(booking => {
         this.bookings.push(booking)
       })
+    this.isBooked = true;
   }
 
   isItReadyForBooking(): boolean {

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Room } from '../room';
 import { RoomService } from '../room.service';
 import { MessageService } from '../message.service';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-rooms',

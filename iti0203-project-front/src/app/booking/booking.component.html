@@ -1,26 +1,29 @@
 <h3>Booking details:</h3>
-<div>
-  <form [formGroup]="roomsForm">
-        Select Room
-      <select formControlName="roomControl" #theRoom>
-        <option [ngValue]="null" disabled>Select Room</option>
-        <option *ngFor="let room of rooms" value="{{room.id}}">{{room.name}}
-        </option>
-      </select>
-  </form>
-</div>
-StartDate(yyyy-mm-dd):
+
+<form [formGroup]="roomsForm">
+  Select Room:
+  <select formControlName="roomControl" #theRoom>
+    <option [ngValue]="null" disabled>Select Room</option>
+    <option *ngFor="let room of rooms" value="{{room.id}}">{{room.name}}
+    </option>
+  </select>
+</form>
+<br>
+Start Date:
 <label>
-  <input type="date" #startDate /><br><br>
+  <input type="date" value="{{currentDate  | date:'yyyy-MM-dd'}}" min="{{currentDate  | date:'yyyy-MM-dd'}}" #startDate />
+  <br><br>
 </label>
-EndDate(yyyy-mm-dd):
+End Date:
 <label>
-  <input type="date" #endDate /><br><br>
+  <input type="date" value="{{startDate.value}}" min="{{startDate.value}}" #endDate />
+  <br><br>
 </label>
 <!-- (click) passes input value to add() and then clears the input -->
 <button (click)="sendAvailabilityData(theRoom.value, startDate.value, endDate.value)">
   Check Availability!
 </button>
+<br>
 
 <div *ngIf="selectedRoom != null">
   <h2>{{selectedRoom.amount}} {{selectedRoom.name}} available rooms</h2>
@@ -36,7 +39,20 @@ EndDate(yyyy-mm-dd):
     <button (click)="addBooking(name.value, startDate.value, endDate.value, payment.value, selectedRoom)">
       Book!
     </button>
+    <div *ngIf="isBooked">
+      Your room is booked!<br>
+      Details:<br>
+      Booker name: {{name.value}}<br>
+      Visit: {{startDate.value}} to {{endDate.value}}<br>
+      Payment information: {{payment.value}}<br>
+      Room: {{selectedRoom.name}}
+    </div>
+  </div>
+  <div *ngIf="selectedRoom.amount == 0">
+    No available rooms.
   </div>
 </div>
 
-
+<div *ngIf="selectedRoom == null">
+  Please fill out correct information
+</div>
