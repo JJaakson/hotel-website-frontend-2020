@@ -1,73 +1,51 @@
+@import url("https://fonts.googleapis.com/css?family=David+Libre");
+
+h1 {
+  font-family: 'David Libre', sans-serif;
+  margin: 20px;
+  text-align: center;
+  color: #0b2852;
+}
+
 .rooms {
-  margin: 0 0 2em 0;
+  text-align: center;
+  margin: 10px;
   list-style-type: none;
-  padding: 0;
-  width: 15em;
+  padding: 10px;
+  width: 100%;
 }
 .rooms li {
+  width: 55%;
+  display: inline-block;
   position: relative;
   cursor: pointer;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
-  border-radius: 4px;
+  border: solid 3px #0b2852;
+  margin: 10px;
+  padding: 3px 0;
+  height: 500px;
 }
 
 .rooms li:hover {
   color: #607D8B;
   background-color: #DDD;
-  left: .1em;
 }
 
 .rooms a {
-  color: #333;
   text-decoration: none;
-  position: relative;
-  display: block;
-  width: 250px;
 }
 
-.rooms a:hover {
-  color: #607D8B;
+.rooms h2, p, b {
+  text-align: center;
+  font-family: 'David Libre', sans-serif;
+  color: #0b2852;
+  padding: 5px;
 }
 
-.rooms .badge {
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color: #405061;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 1.8em;
-  min-width: 16px;
-  text-align: right;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
+.rooms .image {
+  border: solid 3px darkred;
+  height: 83%;
+  width: 90%;
 }
 
-button {
-  background-color: #eee;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  cursor: hand;
-  font-family: Arial;
-}
 
-button:hover {
-  background-color: #cfd8dc;
-}
-
-button.delete {
-  position: relative;
-  left: 194px;
-  top: -32px;
-  background-color: gray !important;
-  color: white;
-}
 
