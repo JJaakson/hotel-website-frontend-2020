@@ -1,5 +1,42 @@
-<div *ngIf="room">
+<div *ngIf="room" class="container">
 
-  <h2>{{room.name | uppercase}}</h2>
-  <img src="/assets/pictures/test_room_{{room.id}}.jpg" alt="Picture of the room">
+  <div class="pictures">
+    <div id="slider">
+      <figure>
+        <img src="/assets/pictures/room_pic_{{room.id}}.jpg" class="image">
+        <img src="/assets/pictures/room_details/room_detail_{{room.id}}_1.jpg" class="image">
+        <img src="/assets/pictures/room_details/room_detail_{{room.id}}_2.jpg" class="image">
+      </figure>
+    </div>
+  </div>
+
+
+  <h2><b>{{room.name}}</b></h2>
+
+  <div class="text">
+    Light colored, modern. All standard rooms have air conditioning. Complimentary broadband Internet access and
+    complimentary Wifi in all rooms. Standard rooms have a view  at open market or the Tasku shopping center.
+  </div>
+  <h2><b>Facilities</b></h2>
+    <ul>
+      <li>○ Average room size 21 square meters</li>
+      <li>○ Kingsize bed 180×200 cm</li>
+      <li>○ Air conditioning</li>
+      <li>○ Flat-screen TV</li>
+      <li>○ High speed WiFi and cable Internet</li>
+      <li>○ Writing desk</li>
+      <li>○ Blackout blinds</li>
+      <li>○ Underfloor heating in bathroom</li>
+      <li>○ Shower</li>
+      <li>○ Hairdryer</li>
+    </ul>
+  <h2><b>Other information</b></h2>
+  <ul>
+    <li>♦ Check in from 15.00, check out till 12.00</li>
+    <li>♦ Rich buffet breakfast is served in the restaurant Mon.-Fri. 7.00 – 10.00 Sat, Sun 7.00 -11.00.</li>
+    <li>♦ Free parking in hotels parking area or in Tasku parking lot – please ask for the parking ticket at the hotel reception upon arrival.</li>
+    <li>♦ Until 24:00 free entrance to Shooters nightclub.</li>
+    <li>♦ Use of the fitness room.</li>
+  </ul>
+
 </div>

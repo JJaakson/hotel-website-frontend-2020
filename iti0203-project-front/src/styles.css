@@ -1,14 +1,14 @@
 /* Application-wide Styles */
-h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
+@import url("https://fonts.googleapis.com/css?family=David+Libre");
+
+
+h1, h2 {
+  font-family: 'David Libre', sans-serif;
+  padding: 20px;
+  text-align: center;
+  color: #0b2852;
 }
-h2, h3 {
-  color: #444;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: lighter;
-}
+
 body {
   margin: 0;
 }
