@@ -5,8 +5,7 @@ import {Room} from "../room";
 import {MessageService} from "../message.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {RoomService} from "../room.service";
-import {Availabilitydata} from "../availabilitydata";
-import {DatePipe} from "@angular/common";
+import {DataToSearchBy} from "../dataToSearchBy";
 
 @Component({
   selector: 'app-booking',
@@ -21,6 +20,7 @@ export class BookingComponent implements OnInit {
   roomsForm: FormGroup;
   currentDate = new Date();
   isBooked: boolean;
+  currentBooking: Booking;
 
   constructor(private bookingService: BookingService, private roomService: RoomService,
               private messageService: MessageService, private fb: FormBuilder) { }
@@ -32,14 +32,14 @@ export class BookingComponent implements OnInit {
     })
   }
 
-  sendAvailabilityData(roomIdAsString: String, startDate: String, endDate: String): void {
+  getAvailabilityDateData(roomIdAsString: String, startDate: String, endDate: String): void {
     this.isBooked = false;
     startDate = startDate.trim();
     endDate = endDate.trim();
     roomIdAsString = roomIdAsString.trim();
     let roomId = Number(roomIdAsString);
     if (!startDate || !endDate || !roomId) { return; }
-    this.bookingService.getAvailabilityData({roomId , startDate, endDate } as Availabilitydata)
+    this.bookingService.getAvailabilityByDate({roomId , startDate, endDate } as DataToSearchBy)
       .subscribe(room => this.selectedRoom = room);
     this.messageService.add(`BookingsComponent: Got availability data ${this.selectedRoom.id}`);
   }
@@ -51,9 +51,7 @@ export class BookingComponent implements OnInit {
     endDate = endDate.trim();
     if (!name || !startDate || !endDate || !room) { return; }
     this.bookingService.addBooking({ name, startDate, endDate, room, paymentInfo } as Booking)
-      .subscribe(booking => {
-        this.bookings.push(booking)
-      })
+      .subscribe(booking => this.currentBooking = booking)
     this.isBooked = true;
   }
 

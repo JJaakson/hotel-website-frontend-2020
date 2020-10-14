@@ -4,7 +4,7 @@ import {MessageService} from "./message.service";
 import {Observable, of} from "rxjs";
 import {Booking} from "./booking";
 import {catchError, tap} from "rxjs/operators";
-import {Availabilitydata} from "./availabilitydata";
+import {DataToSearchBy} from "./dataToSearchBy";
 import {Room} from "./room";
 
 @Injectable({
@@ -37,10 +37,16 @@ export class BookingService {
         catchError(this.handleError<Booking>(`getBooking id=${bookingId}`))
       );
   }
+  getBookingsByDate(dateData: DataToSearchBy): Observable<Booking[]> {
+    const url = `${this.bookingsUrl}/datedata`;
+    return this.http.put(url, dateData, this.httpOptions).pipe(
+      tap(_ => this.log(`searched by date`)),
+      catchError(this.handleError<any>('searched by date'))
+    );
+  }
 
-  getAvailabilityData(data: Availabilitydata): Observable<Room> {
-    const url = `${this.bookingsUrl}`;
-    return this.http.put(url, data, this.httpOptions).pipe(
+  getAvailabilityByDate(dateData: DataToSearchBy): Observable<Room> {
+    return this.http.put(this.bookingsUrl, dateData, this.httpOptions).pipe(
       tap(_ => this.log(`updated availabilitydata`)),
       catchError(this.handleError<any>('updateAvailability'))
     );
