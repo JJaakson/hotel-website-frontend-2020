@@ -10,6 +10,19 @@
   text-align: center;
 }
 
+.input_container h2 {
+  font-size: 22px;
+  font-family: 'David Libre', sans-serif;
+  text-align: center;
+  color: darkgreen;
+}
+
+.input_container p {
+  font-size: 16px;
+  font-family: 'David Libre', sans-serif;
+  text-align: center;
+}
+
 .input_container input, select {
   width: 200px;
   height: 40px;
@@ -23,6 +36,7 @@
   height: 40px;
   font-size: 20px;
   font-family: 'David Libre', sans-serif;
+  border: solid 1px #0b2852;
 }
 
 .correct_information {
@@ -30,4 +44,19 @@
   font-size: 20px;
   font-family: 'David Libre', sans-serif;
   color: red;
+}
+
+.booking_information {
+  margin: auto;
+  width: 400px;
+  text-align: center;
+  padding: 10px;
+  border: solid 3px darkred;
+}
+
+.booking_information p, b {
+  line-height: 1.5;
+  font-size: 22px;
+  font-family: 'David Libre', sans-serif;
+  text-align: center;
 }
