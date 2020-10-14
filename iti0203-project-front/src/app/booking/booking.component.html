@@ -31,7 +31,7 @@
 
 <div class="input_container">
   <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="sendAvailabilityData(theRoom.value, startDate.value, endDate.value)">
+  <button (click)="getAvailabilityDateData(theRoom.value, startDate.value, endDate.value)">
     Check Availability!
   </button>
   <br>
@@ -61,6 +61,7 @@
         <p>
         <b>Your room is booked!</b><br>
         Details:<br>
+        Booking ID: {{currentBooking.id}}<br>
         Booker name: {{name.value}}<br>
         Visit: {{startDate.value}} to {{endDate.value}}<br>
         Payment information: {{payment.value}}<br>

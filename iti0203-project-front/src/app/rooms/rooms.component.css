@@ -1,12 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=David+Libre");
 
-h1 {
-  font-family: 'David Libre', sans-serif;
-  margin: 20px;
-  text-align: center;
-  color: #0b2852;
-}
-
 .rooms {
   text-align: center;
   margin: 10px;

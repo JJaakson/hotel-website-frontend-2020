@@ -12,11 +12,76 @@ h1, h2 {
 body {
   margin: 0;
 }
+
 body, input[type="text"], button {
   color: #333333;
   font-family: Cambria, Georgia;
 }
-/* everywhere else */
+
+#slider {
+  overflow: hidden;
+}
+
+#slider figure {
+  position: relative;
+  width: 300%;
+  margin: 0;
+  animation: 20s slider infinite;
+}
+
+#slider figure img {
+  width: 33.33%;
+}
+
+@keyframes slider {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+}
 * {
-  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+
+.column {
+  float: left;
+  width: 30%;
+  padding: 15px;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  background-color: #0b2852;
 }
