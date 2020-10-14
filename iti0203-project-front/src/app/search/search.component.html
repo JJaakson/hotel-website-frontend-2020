@@ -23,6 +23,7 @@
   <div>Name: {{selectedBooking.name}}</div>
   <div>Payment information: {{selectedBooking.paymentInfo}}</div>
 </div>
+
 <ul class="bookings">
   <li *ngFor="let booking of bookings"
       [class.selected]="booking === selectedBooking"

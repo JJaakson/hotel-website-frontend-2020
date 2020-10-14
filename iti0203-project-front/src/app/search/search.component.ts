@@ -39,6 +39,7 @@ export class SearchComponent implements OnInit {
     startDate = startDate.trim();
     endDate = endDate.trim();
     let roomId = -1;
+    this.selectedBooking = null;
     if (!startDate || !endDate) { return; }
     this.bookingService.getBookingsByDate( {roomId, startDate, endDate} as DataToSearchBy)
       .subscribe(bookings => this.bookings = bookings);

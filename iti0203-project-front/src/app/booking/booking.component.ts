@@ -6,7 +6,6 @@ import {MessageService} from "../message.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {RoomService} from "../room.service";
 import {DataToSearchBy} from "../dataToSearchBy";
-import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-booking',
