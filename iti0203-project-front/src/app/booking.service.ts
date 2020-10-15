@@ -38,7 +38,7 @@ export class BookingService {
       );
   }
   getBookingsByDate(dateData: DataToSearchBy): Observable<Booking[]> {
-    const url = `${this.bookingsUrl}/datedata`;
+    const url = `${this.bookingsUrl}`;
     return this.http.put(url, dateData, this.httpOptions).pipe(
       tap(_ => this.log(`searched by date`)),
       catchError(this.handleError<any>('searched by date'))
@@ -46,7 +46,7 @@ export class BookingService {
   }
 
   getAvailabilityByDate(dateData: DataToSearchBy): Observable<Room> {
-    return this.http.put(this.bookingsUrl, dateData, this.httpOptions).pipe(
+    return this.http.put('api/availability', dateData, this.httpOptions).pipe(
       tap(_ => this.log(`updated availabilitydata`)),
       catchError(this.handleError<any>('updateAvailability'))
     );
@@ -71,6 +71,6 @@ export class BookingService {
   }
 
   private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
+    this.messageService.add(`RoomService: ${message}`);
   }
 }

@@ -1,4 +1,3 @@
-
 <h1>BOOKING DETAILS</h1>
 
 <div class="input_container">
@@ -6,7 +5,7 @@
   <form [formGroup]="roomsForm">
     <select formControlName="roomControl" #theRoom>
       <option [ngValue]="null" disabled>Select Room</option>
-      <option *ngFor="let room of rooms" value="{{room.id}}">{{room.name}}
+      <option *ngFor="let room of rooms" value="{{room.id}}">{{room.name}} ({{room.cost}}€)
       </option>
     </select>
   </form>
@@ -65,7 +64,8 @@
         Booker name: {{name.value}}<br>
         Visit: {{startDate.value}} to {{endDate.value}}<br>
         Payment information: {{payment.value}}<br>
-        Room: {{selectedRoom.name}}
+        Room: {{selectedRoom.name}}<br>
+          Cost: {{selectedRoom.cost}}€
         </p>
       </div>
     </div>
