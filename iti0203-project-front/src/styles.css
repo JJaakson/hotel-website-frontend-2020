@@ -1,7 +1,6 @@
 /* Application-wide Styles */
 @import url("https://fonts.googleapis.com/css?family=David+Libre");
 
-
 h1, h2 {
   font-family: 'David Libre', sans-serif;
   padding: 20px;
@@ -77,7 +76,6 @@ body, input[type="text"], button {
   width: 30%;
   padding: 15px;
 }
-
 
 .row:after {
   content: "";
