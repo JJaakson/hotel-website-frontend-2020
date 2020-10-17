@@ -41,7 +41,7 @@ export class BookingComponent implements OnInit {
     if (!startDate || !endDate || !roomId) { return; }
     this.bookingService.getAvailabilityByDate({ roomId , startDate, endDate } as DataToSearchBy)
       .subscribe(room => this.selectedRoom = room);
-    this.messageService.add(`BookingsComponent: Got availability data ${this.selectedRoom.id}`);
+    this.messageService.add(`BookingsComponent: Got availability data ${this.selectedRoom.id} `);
   }
 
   addBooking(name: String, startDate: String, endDate: String, paymentInfo: String, room: Room): void {
