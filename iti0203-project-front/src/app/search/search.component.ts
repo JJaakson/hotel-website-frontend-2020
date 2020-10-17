@@ -46,6 +46,6 @@ export class SearchComponent implements OnInit {
   }
 
   onSelect(booking: Booking): void {
-    this.selectedBooking = booking;
+    this.getBookingById(booking.id.toString())
   }
 }

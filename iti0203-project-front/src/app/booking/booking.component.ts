@@ -39,7 +39,7 @@ export class BookingComponent implements OnInit {
     roomIdAsString = roomIdAsString.trim();
     let roomId = Number(roomIdAsString);
     if (!startDate || !endDate || !roomId) { return; }
-    this.bookingService.getAvailabilityByDate({roomId , startDate, endDate } as DataToSearchBy)
+    this.bookingService.getAvailabilityByDate({ roomId , startDate, endDate } as DataToSearchBy)
       .subscribe(room => this.selectedRoom = room);
     this.messageService.add(`BookingsComponent: Got availability data ${this.selectedRoom.id}`);
   }
@@ -50,7 +50,7 @@ export class BookingComponent implements OnInit {
     startDate = startDate.trim();
     endDate = endDate.trim();
     if (!name || !startDate || !endDate || !room) { return; }
-    this.bookingService.addBooking({ name, startDate, endDate, room, paymentInfo } as Booking)
+    this.bookingService.addBooking({ name, startDate, endDate, room, paymentInfo} as Booking)
       .subscribe(booking => this.currentBooking = booking)
     this.isBooked = true;
   }
