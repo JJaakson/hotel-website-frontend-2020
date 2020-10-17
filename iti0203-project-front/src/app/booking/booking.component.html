@@ -37,7 +37,7 @@
 </div>
 
 <div class="input_container">
-<div *ngIf="selectedRoom != null">
+<div *ngIf="selectedRoom != null && endDate.value != startDate.value">
   <h2>{{selectedRoom.amount}} {{selectedRoom.name}} available rooms</h2>
   <div *ngIf="selectedRoom.amount > 0">
     <p>Enter your name:</p>
