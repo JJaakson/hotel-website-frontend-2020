@@ -1,39 +1,10 @@
-<h2>My Rooms</h2>
+<h1>ROOMS</h1>
 
-<div>
-  <label>Room name:
-    <input #roomName />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-<!--  <button (click)="add(roomName.value); roomName.value=''">-->
-<!--    add-->
-<!--  </button>-->
-</div>
-
-<ul class="heroes">
+<ul class="rooms">
   <li *ngFor="let room of rooms">
     <a routerLink="/detail/{{room.id}}">
-      <span class="badge">{{room.id}}</span> {{room.name}}
+      <h2><b>{{room.name}}</b></h2>
+      <img src="/assets/pictures/room_pic_{{room.id}}.jpg" class="image">
     </a>
-<!--    <button class="delete" title="delete hero"-->
-<!--            (click)="delete(room)">x</button>-->
   </li>
 </ul>
-
-
-
-
-
-
-
-<!--<h2>Rooms</h2>-->
-
-<!--<ul class="rooms">-->
-<!--  <li *ngFor="let room of rooms"-->
-<!--      [class.selected]="room === selectedRoom"-->
-<!--      (click)="onSelect(room)">-->
-<!--    <span class="badge">{{room.id}}</span> {{room.name}}-->
-<!--  </li>-->
-<!--</ul>-->
-
-<!--<app-room-detail [room]="selectedRoom"></app-room-detail>-->

@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css?family=David+Libre");
+
+.pictures {
+  margin: 0;
+  float: left;
+  border: solid 6px darkred;
+}
+
+body {
+  padding: 10px;
+}
+
+.leftcolumn {
+  float: left;
+  width: 35%;
+  padding-top: 10px;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 65%;
+  padding: 20px;
+}
+
+.card {
+  /*background-color: #286ac9;*/
+  border: solid 6px darkred;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.welcome-text {
+  font-family: 'David Libre', sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #0b2852;
+}

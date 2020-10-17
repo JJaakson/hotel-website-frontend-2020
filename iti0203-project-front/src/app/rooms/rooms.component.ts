@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Room } from '../room';
 import { RoomService } from '../room.service';
 import { MessageService } from '../message.service';
+import {FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-rooms',
@@ -12,10 +13,9 @@ import { MessageService } from '../message.service';
 export class RoomsComponent implements OnInit {
 
   selectedRoom: Room;
-
   rooms: Room[];
 
-  constructor(private roomService: RoomService, private messageService: MessageService) { }
+  constructor(private roomService: RoomService, private messageService: MessageService, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.getRooms();

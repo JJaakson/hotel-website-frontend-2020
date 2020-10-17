@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css?family=David+Libre");
+
+.pictures {
+  margin: auto;
+  width: 65%;
+  border: solid 4px darkred;
+}
+
+.image {
+  height: 640px;
+}
+
+.text {
+  margin: 0 100px 50px 100px;
+  font-size: 20px;
+  font-family: 'David Libre', sans-serif;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.container {
+  padding-top: 30px;
+}
+
+ul li {
+  margin: 10px;
+  font-size: 20px;
+  font-family: 'David Libre', sans-serif;
+  text-align: center;
+  line-height: 1.8;
+  list-style-type: none;
+}
+
+ul {
+  margin-bottom: 100px;
+}
+
+.price {
+  line-height: 1.5;
+  margin: auto;
+  width: fit-content;
+  border: solid 2px #0b2852;
+  background-color: #ebebeb;
+}
+
+.price h2 {
+  color: darkred;
+}
+
