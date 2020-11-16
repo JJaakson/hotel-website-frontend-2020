@@ -24,4 +24,4 @@ deploy rooms:
   script:
     - mkdir -p ~/front-deployment
     - rm -rf ~/front-deployment/*
-    - cp -r dist/angular-rooms/. ~/front-deployment
+    - cp -r dist/. ~/front-deployment
