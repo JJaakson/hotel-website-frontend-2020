@@ -1,0 +1,27 @@
+stages:
+  - build
+  - deploy
+
+build rooms:
+  stage: build
+  image: node:12-alpine
+  cache:
+    paths:
+      - node_modules
+  artifacts:
+    paths:
+      - dist
+  tags:
+    - rooms
+  script:
+    - npm install
+    - npm run build
+
+deploy rooms:
+  stage: deploy
+  tags:
+    - rooms
+  script:
+    - mkdir -p ~/front-deployment
+    - rm -rf ~/front-deployment/*
+    - cp -r dist/. ~/front-deployment
