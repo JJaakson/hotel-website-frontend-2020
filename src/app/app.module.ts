@@ -14,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {SearchComponent} from "./search/search.component";
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import {SearchComponent} from "./search/search.component";
     ReactiveFormsModule
   ],
   providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
     // no need to place any providers due to the `providedIn` flag...
   ],
   bootstrap: [ AppComponent ]
