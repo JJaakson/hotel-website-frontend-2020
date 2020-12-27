@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from "../authentication.service";
 import {Router} from "@angular/router";
-import {timeout} from "rxjs/operators";
 import {UserService} from "../user.service";
+import {User} from "../user";
 
 @Component({
   selector: 'app-user',
@@ -12,6 +12,7 @@ import {UserService} from "../user.service";
 export class UserComponent implements OnInit {
 
   userLogged: boolean;
+  user: User;
 
   constructor(
     private userService: UserService,
@@ -23,6 +24,7 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.user = this.authenticationService.currentUserValue;
     this.userService.getMe()
   }
 

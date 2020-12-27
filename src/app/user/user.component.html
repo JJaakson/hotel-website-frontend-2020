@@ -1,15 +1,17 @@
 <div *ngIf="!userLogged">
   <script>window.location.replace("/login")</script>
+  <br>
   <h3>You are now logged out!</h3>
+  <br><br><br><br>
 </div>
 <div *ngIf="userLogged" class="input_container">
   <table>
     <tr>
-      <th><label>Username</label></th>
-      <td><br></td>
+      <th><h2>Welcome {{user.username}}!</h2></th>
+      <td></td>
     </tr>
     <tr>
-      <th><label>Password</label></th>
+      <th><h2>My bookings:</h2></th>
       <td><br></td>
     </tr>
     <tr>

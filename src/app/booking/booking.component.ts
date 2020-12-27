@@ -6,6 +6,7 @@ import {MessageService} from "../message.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {RoomService} from "../room.service";
 import {DataToSearchBy} from "../dataToSearchBy";
+import {AuthenticationService} from "../authentication.service";
 
 @Component({
   selector: 'app-booking',
@@ -16,14 +17,18 @@ export class BookingComponent implements OnInit {
 
   selectedRoom: Room;
   rooms: Room[];
-  bookings: Booking[];
+  userLogged: boolean;
   roomsForm: FormGroup;
   currentDate = new Date();
   isBooked: boolean;
   currentBooking: Booking;
 
   constructor(private bookingService: BookingService, private roomService: RoomService,
-              private messageService: MessageService, private fb: FormBuilder) { }
+              private authenticationService: AuthenticationService,
+              private messageService: MessageService, private fb: FormBuilder) {
+
+    this.userLogged = !!this.authenticationService.currentUserValue;
+  }
 
   ngOnInit() {
     this.getRooms()

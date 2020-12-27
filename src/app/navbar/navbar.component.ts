@@ -11,6 +11,7 @@ import {AuthenticationService} from "../authentication.service";
 export class NavbarComponent implements OnInit {
 
   userLogged: boolean;
+  user: User;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -21,6 +22,7 @@ export class NavbarComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.user = this.authenticationService.currentUserValue;
   }
 
 
