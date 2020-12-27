@@ -1,0 +1,24 @@
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+  <div class="input_container">
+    <table>
+      <tr>
+        <th><label for="username">Username</label></th>
+        <td><input id="username" type="text" formControlName="username"><br></td>
+      </tr>
+      <tr>
+        <th><label for="password">Password</label></th>
+        <td><input id="password" type="password" formControlName="password"><br></td>
+      </tr>
+      <tr>
+        <td colspan="2"><button class="button" type="submit">Login</button></td>
+      </tr>
+      <tr>
+        <td colspan="2"><a routerLink="/register">Don't have an account? Register here.</a></td>
+      </tr>
+    </table>
+
+  </div>
+
+
+</form>
+
