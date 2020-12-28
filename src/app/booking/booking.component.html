@@ -3,12 +3,14 @@
 
   <div class="input_container">
     <h3>Select Room:</h3>
-    <form [formGroup]="roomsForm">
-      <select formControlName="roomControl" #theRoom>
-        <option [ngValue]="null" disabled>Select Room</option>
-        <option *ngFor="let room of rooms" value="{{room.id}}">{{room.name}} ({{room.cost}}€)
-        </option>
-      </select>
+    <form [formGroup]="roomsForm" novalidate>
+      <label>
+        <select #theRoom>
+          <option [ngValue]="null" [disabled]="true">Select Room</option>
+          <option *ngFor="let room of rooms" value="{{room.id}}">{{room.name}} ({{room.cost}}€)
+          </option>
+        </select>
+      </label>
     </form>
     <br>
   </div>
@@ -46,8 +48,8 @@
 <!--          <input #name /><br><br>-->
 <!--        </label>-->
         <p>Enter your payment information:</p>
-        <select formControlName="roomControl" #payment>
-          <option [ngValue]="null" disabled>Select Payement</option>
+        <select #payment>
+          <option [ngValue]="null" [disabled]="true">Select Payement</option>
           <option value="Mastercard">Mastercard</option>
           <option value="VISA">VISA</option>
           <option value="BitCoin">BitCoin</option>
