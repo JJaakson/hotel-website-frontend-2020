@@ -13,7 +13,6 @@ import {MessageService} from "../message.service";
 })
 export class RoomDetailComponent implements OnInit {
   room: Room;
-  bookings: Booking[];
 
   constructor(
     private route: ActivatedRoute,

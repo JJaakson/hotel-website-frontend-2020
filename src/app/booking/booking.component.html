@@ -1,11 +1,11 @@
-<h1>BOOKING DETAILS</h1>
 <div *ngIf="userLogged">
+  <h1>BOOKING DETAILS</h1>
 
   <div class="input_container">
     <h3>Select Room:</h3>
     <form [formGroup]="roomsForm" novalidate>
       <label>
-        <select #theRoom>
+        <select #chosenRoom>
           <option [ngValue]="null" [disabled]="true">Select Room</option>
           <option *ngFor="let room of rooms" value="{{room.id}}">{{room.name}} ({{room.cost}}€)
           </option>
@@ -33,7 +33,7 @@
 
   <div class="input_container">
     <!-- (click) passes input value to add() and then clears the input -->
-    <button (click)="getAvailabilityDateData(theRoom.value, startDate.value, endDate.value)">
+    <button (click)="getAvailabilityDateData(chosenRoom.value, startDate.value, endDate.value)">
       Check Availability!
     </button>
     <br>
@@ -49,7 +49,7 @@
 <!--        </label>-->
         <p>Enter your payment information:</p>
         <select #payment>
-          <option [ngValue]="null" [disabled]="true">Select Payement</option>
+          <option value="" [disabled]="true">Select Payment</option>
           <option value="Mastercard">Mastercard</option>
           <option value="VISA">VISA</option>
           <option value="BitCoin">BitCoin</option>
@@ -78,11 +78,6 @@
       </div>
     </div>
   </div>
-
-  <div *ngIf="selectedRoom == null" class="correct_information">
-    Please fill out correct information!
-  </div>
-
 </div>
 
 <div *ngIf="!userLogged">
