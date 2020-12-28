@@ -65,4 +65,9 @@ export class UserComponent implements OnInit {
     this.selectedBooking = booking;
   }
 
+  cancelBooking(booking: Booking): void {
+    this.bookings = this.bookings.filter(b => b !== booking);
+    this.bookingService.deleteBooking(booking).subscribe();
+  }
+
 }

@@ -6,6 +6,7 @@ import {Booking} from "./booking";
 import {catchError, tap} from "rxjs/operators";
 import {DataToSearchBy} from "./dataToSearchBy";
 import {Room} from "./room";
+import {absoluteFromSourceFile} from "@angular/compiler-cli/src/ngtsc/file_system";
 
 @Injectable({
   providedIn: 'root'
@@ -65,6 +66,13 @@ export class BookingService {
       tap((newBooking: Booking) => this.log(`added booking w /id =${newBooking.id}`)),
       catchError(this.handleError<Booking>('addBooking'))
     );
+  }
+
+  deleteBooking(booking: Booking | number): Observable<Booking> {
+    const id = typeof booking === 'number' ? booking : booking.id;
+    const url = `${this.bookingsUrl}/${id}`;
+    console.log(url);
+    return this.http.delete<Booking>(url, this.httpOptions);
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

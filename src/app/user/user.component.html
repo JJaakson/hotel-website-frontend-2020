@@ -20,6 +20,7 @@
             <p>Room: {{selectedBooking.room.name}}</p>
             <p>Payment information: {{selectedBooking.paymentInfo}}</p>
             <p>Cost: <b>{{selectedBooking.room.cost}}€</b></p>
+            <button (click)="cancelBooking(selectedBooking)">Cancel booking</button>
           </div>
         </div>
         <ul class="bookings">
@@ -32,7 +33,7 @@
     </tr>
 
     <tr>
-      <td><button style="color: red; border: 1px solid red" (click)="logout()">Log out</button></td>
+      <td><button style="color: white; border: 2px solid #0b2852; background-color: darkred" (click)="logout()">Log out</button></td>
     </tr>
   </table>
 </div>
