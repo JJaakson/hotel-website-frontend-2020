@@ -32,7 +32,8 @@ export class UserComponent implements OnInit {
     this.user = this.authenticationService.currentUserValue;
     this.userService.getMe();
     if (this.userLogged) {
-      this.getBookingsByUsername(this.user.username)
+      console.log(this.user.token.trim());
+      this.getBookingsByUsername(this.user.token.trim())
     }
 
   }
