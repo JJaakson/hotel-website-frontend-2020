@@ -23,7 +23,7 @@ export class BookingService {
     private messageService: MessageService) { }
 
   getBookings(): Observable<Booking[]> {
-    return this.http.get<Booking[]>(this.bookingsUrl)
+    return this.http.get<Booking[]>(`${this.bookingsUrl}/all`)
       .pipe(
         tap(_ => this.log('fetched bookings')),
         catchError(this.handleError<Booking[]>('getBookings', []))
@@ -37,6 +37,14 @@ export class BookingService {
         catchError(this.handleError<Booking>(`getBooking id=${bookingId}`))
       );
   }
+
+  getBookingsByUsername(username: string): Observable<Booking[]> {
+    return this.http.get(`${this.bookingsUrl}/${username}`).pipe(
+      tap(_ => this.log(`searched by username`)),
+      catchError(this.handleError<any>('searched by username'))
+    );
+  }
+
   getBookingsByDate(dateData: DataToSearchBy): Observable<Booking[]> {
     const url = `${this.bookingsUrl}`;
     return this.http.put(url, dateData, this.httpOptions).pipe(

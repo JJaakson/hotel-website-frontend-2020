@@ -9,7 +9,7 @@
     <li *ngIf="userLogged">
       <a routerLink="/user">Account</a>
     </li>
-    <li *ngIf="user.role === 'ADMIN'">
+    <li *ngIf="userLogged && user.role === 'ADMIN'">
       <a routerLink="/search">Search</a>
     </li>
     <li>

@@ -1,5 +1,4 @@
 <div *ngIf="!userLogged">
-  <script>window.location.replace("/login")</script>
   <br>
   <h3>You are now logged out!</h3>
   <br><br><br><br>
@@ -8,14 +7,32 @@
   <table>
     <tr>
       <th><h2>Welcome {{user.username}}!</h2></th>
-      <td></td>
     </tr>
     <tr>
       <th><h2>My bookings:</h2></th>
-      <td><br></td>
     </tr>
     <tr>
-      <td><button (click)="logout()">Log out</button></td>
+        <div *ngIf="selectedBooking">
+          <div class="booking_information">
+            <h2>Booking ID: {{selectedBooking.id}} </h2>
+            <p>Date: <b>{{selectedBooking.startDate}}</b> to <b>{{selectedBooking.endDate}}</b></p>
+            <p>Name: {{selectedBooking.name}}</p>
+            <p>Room: {{selectedBooking.room.name}}</p>
+            <p>Payment information: {{selectedBooking.paymentInfo}}</p>
+            <p>Cost: <b>{{selectedBooking.room.cost}}€</b></p>
+          </div>
+        </div>
+        <ul class="bookings">
+          <li *ngFor="let booking of bookings"
+              [class.selected]="booking === selectedBooking"
+              (click)="onSelect(booking)">
+            <span class="badge">{{booking.id}})</span> {{booking.startDate}} to {{booking.endDate}}
+          </li>
+        </ul>
+    </tr>
+
+    <tr>
+      <td><button style="color: red; border: 1px solid red" (click)="logout()">Log out</button></td>
     </tr>
   </table>
 </div>

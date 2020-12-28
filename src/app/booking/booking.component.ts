@@ -7,6 +7,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {RoomService} from "../room.service";
 import {DataToSearchBy} from "../dataToSearchBy";
 import {AuthenticationService} from "../authentication.service";
+import {User} from "../user";
 
 @Component({
   selector: 'app-booking',
@@ -22,6 +23,7 @@ export class BookingComponent implements OnInit {
   currentDate = new Date();
   isBooked: boolean;
   currentBooking: Booking;
+  user: User;
 
   constructor(private bookingService: BookingService, private roomService: RoomService,
               private authenticationService: AuthenticationService,
@@ -31,6 +33,7 @@ export class BookingComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = this.authenticationService.currentUserValue;
     this.getRooms()
     this.roomsForm = this.fb.group({
       roomControl: []

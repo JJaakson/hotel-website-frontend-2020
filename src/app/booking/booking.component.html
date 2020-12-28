@@ -41,10 +41,10 @@
     <div *ngIf="selectedRoom != null && endDate.value != startDate.value">
       <h2>{{selectedRoom.amount}} {{selectedRoom.name}} available rooms</h2>
       <div *ngIf="selectedRoom.amount > 0">
-        <p>Enter your name:</p>
-        <label>
-          <input #name /><br><br>
-        </label>
+<!--        <p>Enter your name:</p>-->
+<!--        <label>-->
+<!--          <input #name /><br><br>-->
+<!--        </label>-->
         <p>Enter your payment information:</p>
         <select formControlName="roomControl" #payment>
           <option [ngValue]="null" disabled>Select Payement</option>
@@ -53,7 +53,7 @@
           <option value="BitCoin">BitCoin</option>
           <option value="Cash">Cash</option>
         </select><br>
-        <button (click)="addBooking(name.value, startDate.value, endDate.value, payment.value, selectedRoom)">
+        <button (click)="addBooking(user.username, startDate.value, endDate.value, payment.value, selectedRoom)">
           Book!
         </button>
         <div *ngIf="isBooked">
@@ -62,7 +62,7 @@
               <b>Your room is booked!</b><br>
               Details:<br>
               Booking ID: {{currentBooking.id}}<br>
-              Booker name: {{name.value}}<br>
+              Booker name: {{user.username}}<br>
               Visit: {{startDate.value}} to {{endDate.value}}<br>
               Payment information: {{payment.value}}<br>
               Room: {{selectedRoom.name}}<br>

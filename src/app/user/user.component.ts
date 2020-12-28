@@ -3,6 +3,8 @@ import {AuthenticationService} from "../authentication.service";
 import {Router} from "@angular/router";
 import {UserService} from "../user.service";
 import {User} from "../user";
+import {Booking} from "../booking";
+import {BookingService} from "../booking.service";
 
 @Component({
   selector: 'app-user',
@@ -12,12 +14,15 @@ import {User} from "../user";
 export class UserComponent implements OnInit {
 
   userLogged: boolean;
+  selectedBooking: Booking;
   user: User;
+  bookings: Booking[];
 
   constructor(
     private userService: UserService,
-    private authenticationService: AuthenticationService,
+    private bookingService: BookingService,
     private router: Router,
+    private authenticationService: AuthenticationService,
   ) {
 
     this.userLogged = !!this.authenticationService.currentUserValue;
@@ -25,13 +30,38 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.authenticationService.currentUserValue;
-    this.userService.getMe()
+    this.userService.getMe();
+    if (this.userLogged) {
+      this.getBookingsByUsername(this.user.username)
+    }
+
   }
+
+  getBookingsByUsername(username: string): void {
+    username = username.trim();
+    username = `?username=${username}`;
+    if (!username) { return; }
+    this.bookingService.getBookingsByUsername(username)
+      .subscribe(bookings => this.bookings = bookings);
+  }
+
+  getBookingById(bookingIdAsString: String): void {
+    bookingIdAsString = bookingIdAsString.trim();
+    let bookingId = Number(bookingIdAsString);
+    if (!bookingId) { return; }
+    this.bookingService.getBookingById(bookingId)
+      .subscribe(booking => this.selectedBooking = booking);
+  }
+
 
   logout() {
     this.authenticationService.logout();
-    this.router.navigate(['/login']);
     window.location.reload();
+  }
+
+  onSelect(booking: Booking): void {
+    this.getBookingById(booking.id.toString());
+    this.selectedBooking = booking;
   }
 
 }
