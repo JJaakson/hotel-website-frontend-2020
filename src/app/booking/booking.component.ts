@@ -57,6 +57,7 @@ export class BookingComponent implements OnInit {
     paymentInfo = paymentInfo.trim();
     startDate = startDate.trim();
     endDate = endDate.trim();
+    console.log(room.cost);
     if (!name || !startDate || !endDate || !room) { return; }
     this.bookingService.addBooking({ name, startDate, endDate, room, paymentInfo} as Booking)
       .subscribe(booking => this.currentBooking = booking)

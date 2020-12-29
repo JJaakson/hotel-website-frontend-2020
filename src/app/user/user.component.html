@@ -19,7 +19,7 @@
             <p>Name: {{selectedBooking.name}}</p>
             <p>Room: {{selectedBooking.room.name}}</p>
             <p>Payment information: {{selectedBooking.paymentInfo}}</p>
-            <p>Cost: <b>{{selectedBooking.room.cost}}€</b></p>
+            <p>Cost: <b>{{selectedBooking.total}}€</b></p>
             <button (click)="cancelBooking(selectedBooking)">Cancel booking</button>
           </div>
         </div>

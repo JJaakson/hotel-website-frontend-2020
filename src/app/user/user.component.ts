@@ -68,6 +68,8 @@ export class UserComponent implements OnInit {
   cancelBooking(booking: Booking): void {
     this.bookings = this.bookings.filter(b => b !== booking);
     this.bookingService.deleteBooking(booking).subscribe();
+    window.location.reload();
+
   }
 
 }

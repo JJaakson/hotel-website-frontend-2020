@@ -57,4 +57,10 @@ export class SearchComponent implements OnInit {
   onSelect(booking: Booking): void {
     this.getBookingById(booking.id.toString())
   }
+
+  cancelBooking(booking: Booking): void {
+    this.bookings = this.bookings.filter(b => b !== booking);
+    this.bookingService.deleteBooking(booking).subscribe();
+    window.location.reload();
+  }
 }

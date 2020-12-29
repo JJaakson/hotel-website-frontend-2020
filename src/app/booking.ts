@@ -7,4 +7,5 @@ export interface Booking {
   endDate: string;
   room: Room;
   paymentInfo: string;
+  total: number;
 }

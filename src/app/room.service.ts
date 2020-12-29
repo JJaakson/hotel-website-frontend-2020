@@ -7,6 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Room } from './room';
 import { MessageService } from './message.service';
 import {Booking} from "./booking";
+import {absoluteFromSourceFile} from "@angular/compiler-cli/src/ngtsc/file_system";
 
 
 @Injectable({
@@ -48,6 +49,12 @@ export class RoomService {
       tap((newBooking: Booking) => this.log(`added booking w /id =${newBooking.id}`)),
       catchError(this.handleError<Booking>('addBooking'))
     );
+  }
+
+  updateRoomCost(cost: string, roomId: number): Observable<any> {
+    const url = `${this.roomsUrl}/${roomId}/price`;
+    return this.http.post(url, cost, this.httpOptions);
+
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
