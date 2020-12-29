@@ -34,10 +34,10 @@ export class BookingComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.authenticationService.currentUserValue;
-    this.getRooms()
+    this.getRooms();
     this.roomsForm = this.fb.group({
       roomControl: []
-    })
+    });
   }
 
   getAvailabilityDateData(roomIdAsString: String, startDate: String, endDate: String): void {
@@ -46,9 +46,14 @@ export class BookingComponent implements OnInit {
     endDate = endDate.trim();
     roomIdAsString = roomIdAsString.trim();
     let roomId = Number(roomIdAsString);
-    if (!startDate || !endDate || !roomId) { return; }
+    if (!startDate || !endDate || !roomId) {
+      alert("Please fill out correct information!")
+      return;
+    }
     this.bookingService.getAvailabilityByDate({ roomId , startDate, endDate } as DataToSearchBy)
-      .subscribe(room => this.selectedRoom = room);
+      .subscribe(room => this.selectedRoom = room, (error:any) => {
+        console.log(error);
+      });
     //this.messageService.add(`BookingsComponent: Got availability data ${this.selectedRoom.id} `);
   }
 
@@ -57,8 +62,10 @@ export class BookingComponent implements OnInit {
     paymentInfo = paymentInfo.trim();
     startDate = startDate.trim();
     endDate = endDate.trim();
-    console.log(room.cost);
-    if (!name || !startDate || !endDate || !room) { return; }
+    if (!name || !startDate || !endDate || !room || !paymentInfo) {
+      alert("Please choose a payment method!")
+      return;
+    }
     this.bookingService.addBooking({ name, startDate, endDate, room, paymentInfo} as Booking)
       .subscribe(booking => this.currentBooking = booking)
     this.isBooked = true;
@@ -71,5 +78,9 @@ export class BookingComponent implements OnInit {
   getRooms(): void {
     this.roomService.getRooms()
       .subscribe(rooms => this.rooms = rooms);
+  }
+
+  alertLogin() : void {
+    alert("Please login, in order to book rooms!")
   }
 }

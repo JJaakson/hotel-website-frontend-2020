@@ -57,7 +57,7 @@ export class BookingService {
   getAvailabilityByDate(dateData: DataToSearchBy): Observable<Room> {
     return this.http.put('api/availability', dateData, this.httpOptions).pipe(
       tap(_ => this.log(`updated availabilitydata`)),
-      catchError(this.handleError<any>('updateAvailability'))
+      catchError(this.handleNonAvailable<any>('updateAvailability'))
     );
   }
 
@@ -81,6 +81,19 @@ export class BookingService {
       console.error(error); // log to console instead
 
       this.log(`${operation} failed: ${error.message}`);
+
+      return of(result as T);
+    };
+  }
+
+  private handleNonAvailable<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      console.error(error); // log to console instead
+
+      console.log(`${operation} failed: ${error.message}`);
+
+      alert("No available rooms!")
 
       return of(result as T);
     };

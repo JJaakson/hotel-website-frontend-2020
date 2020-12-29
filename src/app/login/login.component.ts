@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
         },
         error => {
           this.messageService.add('Login unsuccessful!');
+          alert("Please use correct credentials to log in or register to become a member!")
           console.log(error);
         });
   }
