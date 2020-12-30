@@ -51,9 +51,7 @@ export class BookingComponent implements OnInit {
       return;
     }
     this.bookingService.getAvailabilityByDate({ roomId , startDate, endDate } as DataToSearchBy)
-      .subscribe(room => this.selectedRoom = room, (error:any) => {
-        console.log(error);
-      });
+      .subscribe(room => this.selectedRoom = room);
     //this.messageService.add(`BookingsComponent: Got availability data ${this.selectedRoom.id} `);
   }
 
@@ -78,9 +76,5 @@ export class BookingComponent implements OnInit {
   getRooms(): void {
     this.roomService.getRooms()
       .subscribe(rooms => this.rooms = rooms);
-  }
-
-  alertLogin() : void {
-    alert("Please login, in order to book rooms!")
   }
 }
