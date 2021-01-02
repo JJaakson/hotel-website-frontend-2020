@@ -32,7 +32,6 @@ export class UserComponent implements OnInit {
     this.user = this.authenticationService.currentUserValue;
     this.userService.getMe();
     if (this.userLogged) {
-      console.log(this.user.token.trim());
       this.getBookingsByUsername(this.user.token.trim())
     }
 
@@ -69,7 +68,6 @@ export class UserComponent implements OnInit {
     this.bookings = this.bookings.filter(b => b !== booking);
     this.bookingService.deleteBooking(booking).subscribe();
     window.location.reload();
-
   }
 
 }
