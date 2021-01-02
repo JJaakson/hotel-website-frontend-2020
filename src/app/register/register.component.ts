@@ -31,7 +31,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(userPassword) {
-    console.log(userPassword);
     if (!userPassword.username || !userPassword.email || !userPassword.password) {
       alert("Please fill out the forms!")
       return;

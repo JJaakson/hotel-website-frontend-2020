@@ -4,7 +4,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomDetailComponent } from './room-detail/room-detail.component';
-import { MessagesComponent } from './messages/messages.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
@@ -27,7 +26,6 @@ import { UserComponent } from './user/user.component';
     AppComponent,
     RoomsComponent,
     RoomDetailComponent,
-    MessagesComponent,
     HomeComponent,
     ContactComponent,
     BookingComponent,

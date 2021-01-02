@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(userPassword) {
-    console.log(userPassword);
 
     this.authenticationService.login(userPassword)
       .pipe(first())

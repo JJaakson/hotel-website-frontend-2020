@@ -70,7 +70,6 @@ export class BookingService {
   deleteBooking(booking: Booking | number): Observable<Booking> {
     const id = typeof booking === 'number' ? booking : booking.id;
     const url = `${this.bookingsUrl}/${id}`;
-    console.log(url);
     return this.http.delete<Booking>(url, this.httpOptions);
   }
 
