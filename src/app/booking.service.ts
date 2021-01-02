@@ -23,7 +23,7 @@ export class BookingService {
     private messageService: MessageService) { }
 
   getBookings(): Observable<Booking[]> {
-    return this.http.get<Booking[]>(this.bookingsUrl)
+    return this.http.get<Booking[]>(`${this.bookingsUrl}/all`)
       .pipe(
         tap(_ => this.log('fetched bookings')),
         catchError(this.handleError<Booking[]>('getBookings', []))
@@ -37,6 +37,14 @@ export class BookingService {
         catchError(this.handleError<Booking>(`getBooking id=${bookingId}`))
       );
   }
+
+  getBookingsByUsername(username: string): Observable<Booking[]> {
+    return this.http.get(`${this.bookingsUrl}/${username}`).pipe(
+      tap(_ => this.log(`searched by username`)),
+      catchError(this.handleError<any>('searched by username'))
+    );
+  }
+
   getBookingsByDate(dateData: DataToSearchBy): Observable<Booking[]> {
     const url = `${this.bookingsUrl}`;
     return this.http.put(url, dateData, this.httpOptions).pipe(
@@ -48,7 +56,7 @@ export class BookingService {
   getAvailabilityByDate(dateData: DataToSearchBy): Observable<Room> {
     return this.http.put('api/availability', dateData, this.httpOptions).pipe(
       tap(_ => this.log(`updated availabilitydata`)),
-      catchError(this.handleError<any>('updateAvailability'))
+      catchError(this.handleNonAvailable<any>('updateAvailability'))
     );
   }
 
@@ -59,13 +67,25 @@ export class BookingService {
     );
   }
 
+  deleteBooking(booking: Booking | number): Observable<Booking> {
+    const id = typeof booking === 'number' ? booking : booking.id;
+    const url = `${this.bookingsUrl}/${id}`;
+    console.log(url);
+    return this.http.delete<Booking>(url, this.httpOptions);
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
       console.error(error); // log to console instead
-
       this.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
+  }
 
+  private handleNonAvailable<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error); // log to console instead
+      alert("No available rooms!")
       return of(result as T);
     };
   }

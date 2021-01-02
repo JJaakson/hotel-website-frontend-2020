@@ -3,7 +3,13 @@
     <li class="title">
       <a routerLink="/home">Hotel Trivago</a>
     </li>
-    <li>
+    <li *ngIf="!userLogged">
+      <a routerLink="/login">Login</a>
+    </li>
+    <li *ngIf="userLogged">
+      <a routerLink="/user">Account</a>
+    </li>
+    <li *ngIf="userLogged && user.role === 'ADMIN'">
       <a routerLink="/search">Search</a>
     </li>
     <li>

@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css?family=David+Libre");
+
+.input_container table {
+  width: 25%;
+  margin: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.input_container label {
+  font-family: 'David Libre', sans-serif;
+}
+
+.input_container tr, th {
+  padding: 20px;
+}
+
+.input_container input, select {
+  display: inline-block;
+  margin: 10px;
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+  font-family: 'David Libre', sans-serif;
+}
+
+.input_container button {
+  text-align: center;
+  margin: 20px;
+  width: 150px;
+  height: 40px;
+  font-size: 20px;
+  font-family: 'David Libre', sans-serif;
+  border: solid 1px #0b2852;
+}
+button {
+  text-align: center;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+}

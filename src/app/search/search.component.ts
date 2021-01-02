@@ -35,6 +35,15 @@ export class SearchComponent implements OnInit {
       .subscribe(bookings => this.bookings = bookings);
   }
 
+  getBookingsByUsername(username: string): void {
+    username = username.trim();
+    let roomId = -1;
+    this.selectedBooking = null;
+    if (!username) { return; }
+    this.bookingService.getBookingsByUsername(username)
+      .subscribe(bookings => this.bookings = bookings);
+  }
+
   getBookingsByDate(startDate: String, endDate: String): void {
     startDate = startDate.trim();
     endDate = endDate.trim();
@@ -47,5 +56,11 @@ export class SearchComponent implements OnInit {
 
   onSelect(booking: Booking): void {
     this.getBookingById(booking.id.toString())
+  }
+
+  cancelBooking(booking: Booking): void {
+    this.bookings = this.bookings.filter(b => b !== booking);
+    this.bookingService.deleteBooking(booking).subscribe();
+    window.location.reload();
   }
 }

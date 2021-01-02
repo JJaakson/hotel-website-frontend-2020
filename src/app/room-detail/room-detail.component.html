@@ -16,10 +16,14 @@
     {{room.descryption}}
   </div>
 
-  <div class="price">
-    <h2>Price: {{room.cost}}€ per night</h2>
-
+    <h2 style="color: darkred">Price: {{room.cost}}€ per night</h2>
+  <div *ngIf="userLogged && user.role === 'ADMIN'" class="pictures" style="width: 195px">
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(room.id, checkoutForm.value)">
+      <input id="price"  style="width: 187px" type="number" formControlName="price">
+    <button class="button" style="width: 187px" type="submit">Change price</button>
+    </form>
   </div>
+
   <h2><b>Other information</b></h2>
   <ul>
     <li>♦ Check in from 15.00, check out till 12.00</li>
