@@ -1,0 +1,39 @@
+<div *ngIf="!userLogged">
+  <br>
+  <h3>You are now logged out!</h3>
+  <br><br><br><br>
+</div>
+<div *ngIf="userLogged" class="input_container">
+  <table>
+    <tr>
+      <th><h2>Welcome {{user.username}}!</h2></th>
+    </tr>
+    <tr>
+      <th><h2>My bookings:</h2></th>
+    </tr>
+    <tr>
+        <div *ngIf="selectedBooking">
+          <div class="booking_information">
+            <h2>Booking ID: {{selectedBooking.id}} </h2>
+            <p>Date: <b>{{selectedBooking.startDate}}</b> to <b>{{selectedBooking.endDate}}</b></p>
+            <p>Name: {{selectedBooking.name}}</p>
+            <p>Room: {{selectedBooking.room.name}}</p>
+            <p>Payment information: {{selectedBooking.paymentInfo}}</p>
+            <p>Cost: <b>{{selectedBooking.total}}€</b></p>
+            <button (click)="cancelBooking(selectedBooking)">Cancel booking</button>
+          </div>
+        </div>
+        <ul class="bookings">
+          <li *ngFor="let booking of bookings"
+              [class.selected]="booking === selectedBooking"
+              (click)="onSelect(booking)">
+            <span class="badge">{{booking.id}})</span> {{booking.startDate}} to {{booking.endDate}}
+          </li>
+        </ul>
+    </tr>
+
+    <tr>
+      <td><button style="color: white; border: 2px solid #0b2852; background-color: darkred" (click)="logout()">Log out</button></td>
+    </tr>
+  </table>
+</div>
