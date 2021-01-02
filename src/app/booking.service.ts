@@ -6,7 +6,6 @@ import {Booking} from "./booking";
 import {catchError, tap} from "rxjs/operators";
 import {DataToSearchBy} from "./dataToSearchBy";
 import {Room} from "./room";
-import {absoluteFromSourceFile} from "@angular/compiler-cli/src/ngtsc/file_system";
 
 @Injectable({
   providedIn: 'root'
@@ -77,24 +76,16 @@ export class BookingService {
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
       console.error(error); // log to console instead
-
       this.log(`${operation} failed: ${error.message}`);
-
       return of(result as T);
     };
   }
 
   private handleNonAvailable<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
       console.error(error); // log to console instead
-
-      console.log(`${operation} failed: ${error.message}`);
-
       alert("No available rooms!")
-
       return of(result as T);
     };
   }

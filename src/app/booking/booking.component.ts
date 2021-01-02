@@ -26,9 +26,7 @@ export class BookingComponent implements OnInit {
   user: User;
 
   constructor(private bookingService: BookingService, private roomService: RoomService,
-              private authenticationService: AuthenticationService,
-              private messageService: MessageService, private fb: FormBuilder) {
-
+              private authenticationService: AuthenticationService, private fb: FormBuilder) {
     this.userLogged = !!this.authenticationService.currentUserValue;
   }
 
@@ -52,7 +50,6 @@ export class BookingComponent implements OnInit {
     }
     this.bookingService.getAvailabilityByDate({ roomId , startDate, endDate } as DataToSearchBy)
       .subscribe(room => this.selectedRoom = room);
-    //this.messageService.add(`BookingsComponent: Got availability data ${this.selectedRoom.id} `);
   }
 
   addBooking(name: String, startDate: String, endDate: String, paymentInfo: String, room: Room): void {

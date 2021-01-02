@@ -16,7 +16,6 @@
     {{room.descryption}}
   </div>
 
-
     <h2 style="color: darkred">Price: {{room.cost}}€ per night</h2>
   <div *ngIf="userLogged && user.role === 'ADMIN'" class="pictures" style="width: 195px">
     <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(room.id, checkoutForm.value)">

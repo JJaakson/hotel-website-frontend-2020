@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Room } from '../room';
 import {ActivatedRoute} from "@angular/router";
 import {RoomService} from "../room.service";

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../user.service";
 import {User} from "../user";
 import {AuthenticationService} from "../authentication.service";
 
@@ -20,12 +19,10 @@ export class NavbarComponent implements OnInit {
     this.userLogged = !!this.authenticationService.currentUserValue;
   }
 
-
   ngOnInit(): void {
     if (this.userLogged) {
       this.user = this.authenticationService.currentUserValue;
     }
   }
-
 
 }

@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         (user)  => {
-          console.log(user);
           this.messageService.add('Login successful!');
           this.router.navigate([this.returnUrl]);
           window.location.reload();

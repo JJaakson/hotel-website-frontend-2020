@@ -12,7 +12,7 @@ import {User} from "./user";
 })
 export class UserService {
 
-  private usersUrl = 'api/users';  // URL to web api
+  private usersUrl = 'api/users';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})

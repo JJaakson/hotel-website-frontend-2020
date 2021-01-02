@@ -43,10 +43,6 @@
     <div *ngIf="selectedRoom != null && endDate.value != startDate.value">
       <h2>{{selectedRoom.amount}} {{selectedRoom.name}} available rooms</h2>
       <div *ngIf="selectedRoom.amount > 0">
-<!--        <p>Enter your name:</p>-->
-<!--        <label>-->
-<!--          <input #name /><br><br>-->
-<!--        </label>-->
         <p>Enter your payment information:</p>
         <select #payment>
           <option value="" [disabled]="true">Select Payment</option>
@@ -86,5 +82,3 @@
   </h3>
   <br>
 </div>
-
-
