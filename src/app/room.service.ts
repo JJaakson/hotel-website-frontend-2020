@@ -27,8 +27,8 @@ export class RoomService {
   getRoom(id: number): Observable<Room> {
     const url = `${this.roomsUrl}/${id}`;
     return this.http.get<Room>(url).pipe(
-      tap(_ => this.log(`fetched hero id=${id}`)),
-      catchError(this.handleError<Room>(`getHero id=${id}`))
+      tap(_ => this.log(`fetched room id=${id}`)),
+      catchError(this.handleError<Room>(`getRoom id=${id}`))
     );
   }
 
@@ -38,13 +38,6 @@ export class RoomService {
         tap(_ => this.log('fetched roomtypes')),
         catchError(this.handleError<Room[]>('getRooms', []))
       );
-  }
-
-  addBooking(booking: Booking): Observable<Booking> {
-    return this.http.post<Booking>(this.roomsUrl + '/book', booking, this.httpOptions).pipe(
-      tap((newBooking: Booking) => this.log(`added booking w /id =${newBooking.id}`)),
-      catchError(this.handleError<Booking>('addBooking'))
-    );
   }
 
   updateRoomCost(cost: string, roomId: number): Observable<any> {
